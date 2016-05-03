@@ -1,0 +1,8 @@
+Hello world<P>
+
+<%= @demos.each do |d| %>
+<%= d.content %><BR>
+<%= d.materials %><BR>
+<%= link_to "Details", demo_path(d) %><P>
+<% end %>
+<%= link_to "New Demo", "/demos/new" %>
