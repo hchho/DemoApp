@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'demos#index'
+  get 'signup' => 'users#new'
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   # get '/demos/:id' => 'demos#show', as: :demo
   # get '/demos/:id/edit' => 'demos#edit', as: :edit_demo
   # patch '/demos/:id' => 'demos#update'

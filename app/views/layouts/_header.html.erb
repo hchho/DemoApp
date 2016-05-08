@@ -1,1 +1,4 @@
-asdf<P>
+<%= link_to "Home", '/' %><P>
+<% if current_user %>
+Welcome, <%= current_user.name %>!
+<% end %>
