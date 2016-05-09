@@ -1,0 +1,7 @@
+<%= form_for(@user) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, :placeholder => :name %><BR>
+<%= f.label :email %>
+<%= f.email_field :email, :placeholder => :email %><BR>
+<%= f.submit "Edit" %>
+<% end %>

@@ -1,4 +1,6 @@
 class DemosController < ApplicationController
+	before_action :require_user, only: [:show, :new, :edit, :update, :destroy]
+
 	def index
 		@demos = Demo.all
 		@user = User.first

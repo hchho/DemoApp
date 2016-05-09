@@ -2,5 +2,8 @@
 This is demo <%= @demo.id %><P>
 <%= @demo.content %><BR>
 <%= @demo.materials %><P>
+<% if current_user %>
 <%= link_to "Edit", edit_demo_path(@demo) %>
 <%= link_to "Delete", demo_path(@demo), method: "delete" %>
+<% end %>
+

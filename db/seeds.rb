@@ -11,4 +11,4 @@ demo_list.each do |content, materials|
 	Demo.create( content: content, materials: materials)
 end
 
-admin = User.create(name: 'admin', email: 'admin@email.com', password: 'admin', password_confirmation: 'admin')
+admin = User.create(name: 'admin', email: 'admin@email.com', password: 'admin', password_confirmation: 'admin', role: 'admin')
