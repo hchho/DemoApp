@@ -6,15 +6,6 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  # get '/demos/:id' => 'demos#show', as: :demo
-  # get '/demos/:id/edit' => 'demos#edit', as: :edit_demo
-  # patch '/demos/:id' => 'demos#update'
-  # get '/demos/new' => 'demos#new'
-  # post 'demos' => 'demos#create'
-  # delete '/demos/:id' => 'demos#destroy'
-
-  # get '/users' => 'users#index'
-
   resources :users
   resources :demos
 

@@ -14,11 +14,14 @@
 ActiveRecord::Schema.define(version: 20160501193241) do
 
   create_table "demos", force: :cascade do |t|
+    t.integer  "user_id"
     t.text     "content"
     t.string   "materials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "demos", ["user_id"], name: "index_demos_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

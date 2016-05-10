@@ -1,5 +1,6 @@
 class DemosController < ApplicationController
-	before_action :require_user, only: [:show, :new, :edit, :update, :destroy]
+	before_action :require_user, only: [:show, :new]
+	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
 		@demos = Demo.all
@@ -15,7 +16,7 @@ class DemosController < ApplicationController
 	end
 
 	def create
-		@demo = Demo.new(demo_params)
+		@demo = current_user.demos.build(demo_params)
 		if @demo.save
 			redirect_to '/', alert: "Demo created successfully"
 		else
@@ -45,5 +46,10 @@ class DemosController < ApplicationController
 
 	def demo_params
 		params.require(:demo).permit(:content, :materials)
+	end
+
+	def correct_user
+		@demo = current_user.demos.find_by(id: params[:id])
+		redirect_to '/' if @demo.nil?
 	end
 end
