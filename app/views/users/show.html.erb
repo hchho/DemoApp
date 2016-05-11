@@ -2,5 +2,8 @@
 <%= @user.email %><P>
 <% if current_user.admin? || current_user.id == @user.id %>
 <%= link_to "Edit", edit_user_path(@user) %>
-<%= link_to "Delete", user_path(@user), method: "delete" %>
+<%= link_to "Delete", user_path(@user), method: "delete" %><P>
+<% end %>
+<% @demos.each do |d| %>
+<%= d.content %><P>
 <% end %>
