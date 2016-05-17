@@ -13,6 +13,7 @@ class DemosController < ApplicationController
 
 	def new
 		@demo = Demo.new
+		@subjects = Subject.all
 	end
 
 	def create
@@ -45,7 +46,7 @@ class DemosController < ApplicationController
 	private
 
 	def demo_params
-		params.require(:demo).permit(:content, :materials)
+		params.require(:demo).permit(:content, :materials, :subject_id)
 	end
 
 	def correct_user

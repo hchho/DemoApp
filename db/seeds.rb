@@ -11,4 +11,9 @@ demo_list.each do |content, materials|
 	Demo.create( content: content, materials: materials)
 end
 
-admin = User.create(name: 'admin', email: 'admin@email.com', password: 'admin', password_confirmation: 'admin', role: 'admin')
+subject_list = [['Physics'] , ['Chemistry'], ['Biology']]
+subject_list.each do |topic|
+	Subject.create( topic: topic )
+end
+
+admin = User.create(name: 'admin', email: 'admin@email.com', password: 'adminadmin', password_confirmation: 'adminadmin', role: 'admin')

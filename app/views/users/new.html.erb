@@ -4,6 +4,8 @@
 <%= f.label :email %>
 <%= f.email_field :email, :placeholder => "email@email.com" %><BR>
 <%= f.label :password %>
-<%= f.password_field  :password, :placeholder => "password" %><BR>
+<%= f.password_field  :password, :placeholder => "Password must be at least 6 characters long" %><BR>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, :placeholder => "Re-type password", class: 'form-control' %>
 <%= f.submit "Create an account", class: "btn-submit" %><P>
 <% end %>

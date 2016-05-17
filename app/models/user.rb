@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
 	has_many :demos
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  has_secure_password  
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
 	attr_accessor :remember_token
+  before_save :downcase_email
 
-	has_secure_password
+
 
 	def admin?
 		self.role == 'admin'
@@ -31,4 +38,12 @@ class User < ActiveRecord::Base
   	def forget
   		update_attribute(:remember_digest, nil)
   	end
+
+  private
+
+    # Converts email to all lower-case.
+    def downcase_email
+      self.email = email.downcase
+    end
+
 end
