@@ -11,11 +11,6 @@ class User < ActiveRecord::Base
   before_save :downcase_email
 
 
-
-	def admin?
-		self.role == 'admin'
-	end
-
 	# Returns the hash digest of the given string.
 	def self.digest(string)
     	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -16,4 +16,4 @@ subject_list.each do |topic|
 	Subject.create( topic: topic )
 end
 
-admin = User.create(name: 'admin', email: 'admin@email.com', password: 'adminadmin', password_confirmation: 'adminadmin', role: 'admin')
+admin = User.create(name: 'admin', email: 'admin@email.com', password: 'adminadmin', password_confirmation: 'adminadmin', admin: true)
