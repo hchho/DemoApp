@@ -1,11 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+orange:
+  content: "I just ate an orange!"
+  materials: "bottle"
+  created_at: <%= 10.minutes.ago %>
+  user: albert
+  subject: physics
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+apple:
+  content: "I just ate an apple!"
+  materials: "lolz"
+  created_at: <%= 10.minutes.ago %>
+  user: bill
+  subject: biology

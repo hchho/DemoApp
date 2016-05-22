@@ -1,5 +1,5 @@
 class DemosController < ApplicationController
-	before_action :require_user, only: [:show, :new]
+	before_action :require_user, only: [:show, :new, :create, :edit, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
