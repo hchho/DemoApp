@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to '/'
+			redirect_to @user
 		else
 			redirect_to '/login'
 		end
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update(user_params)
-			redirect_to(:action => 'show', :id => @user.id)
+		if @user.update_attributes(user_params)
+			redirect_to @user
 		else
 			render 'edit'
 		end
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id]).destroy
+		redirect_to users_url
 	end
 
 	private
@@ -51,11 +52,11 @@ class UsersController < ApplicationController
 
 	def correct_user
     	@user = User.find(params[:id])
-    	redirect_to '/login' unless current_user?(@user)
+    	redirect_to '/' unless current_user?(@user)
   	end
 
 	def admin_user
-		redirect_to '/login' unless current_user.admin?
+		redirect_to '/' unless current_user.admin?
 	end
 
 end

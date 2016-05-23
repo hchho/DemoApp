@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def require_user
-  	redirect_to '/login' unless current_user
+    unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+    end
   end
 
   def require_admin
