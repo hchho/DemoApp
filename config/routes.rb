@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
+  get 'help' => 'static_pages#help'
+
   get '/' => 'demos#index'
   get 'signup' => 'users#new'
   delete '/users/:id' => 'users#destroy'

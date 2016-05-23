@@ -6,24 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-demo_list = [['a', "A"], ['b', "B"], ['c', "C"]]
-demo_list.each do |content, materials|
-	Demo.create( content: content, materials: materials)
-end
 
-subject_list = [['Physics'] , ['Chemistry'], ['Biology']]
-subject_list.each do |topic|
-	Subject.create( topic: topic )
-end
 
 admin = User.create(name: 'admin', email: 'admin@email.com', password: 'adminadmin', password_confirmation: 'adminadmin', admin: true)
 
-99.times do |n|
+9.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@example.com"
   password = "password"
   User.create!(name:  name,
               email: email,
               password:              password,
               password_confirmation: password)
+end
+
+physics = Subject.create(topic: 'physics')
+biology = Subject.create(topic: 'biology')
+chemistry = Subject.create(topic: 'chemistry')
+
+demo_list = [['a', "A", 1, 1], ['b', "B", 2, 1], ['c', "C", 3, 1]]
+demo_list.each do |content, materials, subject, user|
+	Demo.create( content: content, materials: materials, subject_id: subject, user_id: user)
 end

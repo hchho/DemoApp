@@ -1,6 +1,7 @@
 <body>
-This is demo <%= @demo.id %><P>
+This is demo <%= @demo.id %>, created by <%= @user.name %><P>
 <%= @demo.content %><BR>
+Topic <%= @topic.topic %><BR>
 <%= @demo.materials %><P>
 <% if current_user %>
 <%= link_to "Edit", edit_demo_path(@demo) %>

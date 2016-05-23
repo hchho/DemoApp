@@ -14,6 +14,5 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 		assert_match @user.name, response.body
 		assert_match @user.email, response.body
 	end
-		
 end
 

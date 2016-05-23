@@ -9,6 +9,8 @@ class DemosController < ApplicationController
 
 	def show
 		@demo = Demo.find(params[:id])
+		@user = User.find(@demo.user_id)
+		@topic = Subject.find(@demo.subject_id)
 	end
 
 	def new

@@ -4,12 +4,7 @@
  <%= f.text_field :content, :placeholder => "Content" %><br>
 <%= f.label :materials %>
  <%= f.text_field :materials, :placeholder => "Materials" %>
-<select name="post[author_id]">
-    <% Subject.all.each do |s| %>
-        <option value="<%= s.id %>"><%= s.topic %></option>
-    <% end %>
-</select>
-
+ <%= f.collection_select :subject_id, Subject.order(:id), :id, :topic %>
 </div>
 <div class="actions">
 <%= f.submit "Create" %>

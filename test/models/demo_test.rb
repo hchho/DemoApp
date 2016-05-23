@@ -10,11 +10,6 @@ class DemoTest < ActiveSupport::TestCase
   	assert @demo.valid?
   end
 
-  test "user id should be present" do
-  	@demo.user_id = nil
-  	assert_not @demo.valid?
-  end
-
   test "content should be present" do
   	@demo.content = ""
   	assert_not @demo.valid?
@@ -25,8 +20,4 @@ class DemoTest < ActiveSupport::TestCase
   	assert_not @demo.valid?
   end
 
-  test "subject id should be present" do
-  	@demo.subject_id = nil
-  	assert_not @demo.valid?
-  end
 end
