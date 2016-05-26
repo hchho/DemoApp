@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
 	attr_accessor :remember_token
   before_save :downcase_email
+  has_many :favourites
+  has_many :favourite_demos, through: :favourites, source: :favourited, source_type: 'Demo'
 
 
 	# Returns the hash digest of the given string.
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
   	def forget
   		update_attribute(:remember_digest, nil)
   	end
-
+  
   private
 
     # Converts email to all lower-case.
