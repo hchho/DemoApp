@@ -1,6 +1,5 @@
 class FavouriteDemosController < ApplicationController
-	before_action :set_demo
-	before_action :require_user, only: [:create, :destroy]
+	before_action :require_user, only: [:create, :destroy, :set_demo]
 
 	def create
 		if Favourite.create(favourited: @demo, user: current_user)

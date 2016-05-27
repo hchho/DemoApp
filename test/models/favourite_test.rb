@@ -11,4 +11,14 @@ class FavouriteTest < ActiveSupport::TestCase
 		assert @favourite.valid?
 	end
 
+	test "favourite should have user id" do 
+		@favourite.user_id = nil
+		assert_not @favourite.valid?
+	end
+
+	test "favourite should have favourited id" do 
+		@favourite.favourited_id = nil
+		assert_not @favourite.valid?
+	end
+	
 end
