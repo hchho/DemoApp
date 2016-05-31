@@ -1,0 +1,4 @@
+Total <%= @user.favourite_demos.count.to_s %> favourited demos:
+<% @user.favourite_demos.each do |d| %>
+<%= d.content %>
+<% end %>

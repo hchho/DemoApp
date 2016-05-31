@@ -1,4 +1,9 @@
 <body>
+<% unless current_user.favourite_demos.exists?(id: @demo.id) %>
+<%= link_to 'Add to favourites', favourite_demos_path(demo_id: @demo), method: :post %>
+<% else %>
+<%= link_to 'Remove from favourites', favourite_demo_path(id: @demo.id), method: :delete %>
+<% end %>
 This is demo <%= @demo.id %>, created by <%= @user.name %><P>
 <%= @demo.content %><BR>
 Topic <%= @topic.topic %><BR>
