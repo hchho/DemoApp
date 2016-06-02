@@ -1,9 +1,6 @@
 <%= form_for(@demo) do |f| %>
 <div class="field">
-<%= f.label :content %>
- <%= f.text_field :content, :placeholder => :content %><br>
-<%= f.label :materials %>
- <%= f.text_field :materials, :placeholder => :materials %>
+<%= render 'demo_form', f: f %>
 </div>
 <div class="actions">
 <%= f.submit "Edit" %>

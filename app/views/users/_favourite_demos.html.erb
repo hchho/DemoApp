@@ -1,4 +1,5 @@
-Total <%= @user.favourite_demos.count.to_s %> favourited demos:
+Total <%= @user.favourite_demos.count.to_s %> favourited demos:<P>
 <% @user.favourite_demos.each do |d| %>
 <%= d.content %>
+<%= link_to "Details", demo_path(d) %><P>
 <% end %>

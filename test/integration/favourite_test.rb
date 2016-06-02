@@ -10,7 +10,9 @@ class FavouritesTest < ActionDispatch::IntegrationTest
 
 	test "user favourited demos page" do 
 		get user_path(@user)
-		assert_not @user.favourite_demos.empty?
 		assert_match @user.favourite_demos.count.to_s, response.body
+		@user.favourite_demos.each do |d|
+			assert_select "a[herf=?]", demo_path(d)
+		end
 	end
 end

@@ -1,0 +1,7 @@
+<%= f.label :name %>
+<%= f.text_field :name, :placeholder => "Name (maximum 40 characters)" %><br>
+<%= f.label :content %>
+ <%= f.text_field :content, :placeholder => "Content" %><br>
+<%= f.label :materials %>
+ <%= f.text_field :materials, :placeholder => "Materials" %>
+ <%= f.collection_select :subject_id, Subject.order(:id), :id, :topic %>

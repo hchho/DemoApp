@@ -24,7 +24,7 @@ physics = Subject.create(topic: 'physics')
 biology = Subject.create(topic: 'biology')
 chemistry = Subject.create(topic: 'chemistry')
 
-demo_list = [['a', "A", 1, 1], ['b', "B", 2, 1], ['c', "C", 3, 1]]
-demo_list.each do |content, materials, subject, user|
-	Demo.create( content: content, materials: materials, subject_id: subject, user_id: user)
+demo_list = [["First", 'a', "A", 1, 1], ["Second", 'b', "B", 2, 1], ["Third", 'c', "C", 3, 1]]
+demo_list.each do |name, content, materials, subject, user|
+	Demo.create( name: name, content: content, materials: materials, subject_id: subject, user_id: user)
 end

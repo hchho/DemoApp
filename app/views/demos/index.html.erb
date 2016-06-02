@@ -1,7 +1,6 @@
 <H1>Demos</H1>
 <% @demos.each do |d| %>
-<%= d.content %><BR>
-<%= d.materials %><BR>
+<%= d.name %><BR>
 <%= link_to "Details", demo_path(d) %><P>
 <% end %>
 <%= link_to "New Demo", "/demos/new" %>

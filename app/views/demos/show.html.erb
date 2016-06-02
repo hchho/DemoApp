@@ -5,8 +5,9 @@
 <%= link_to 'Remove from favourites', favourite_demo_path(id: @demo.id), method: :delete %>
 <% end %>
 This is demo <%= @demo.id %>, created by <%= @user.name %><P>
-<%= @demo.content %><BR>
+Name: <%= @demo.name %><br>
 Topic <%= @topic.topic %><BR>
+<%= @demo.content %><BR>
 <%= @demo.materials %><P>
 <% if current_user %>
 <%= link_to "Edit", edit_demo_path(@demo) %>

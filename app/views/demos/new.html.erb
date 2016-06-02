@@ -1,10 +1,6 @@
 <%= form_for(@demo) do |f| %>
 <div class="field">
-<%= f.label :content %>
- <%= f.text_field :content, :placeholder => "Content" %><br>
-<%= f.label :materials %>
- <%= f.text_field :materials, :placeholder => "Materials" %>
- <%= f.collection_select :subject_id, Subject.order(:id), :id, :topic %>
+<%= render 'demo_form', f: f %>
 </div>
 <div class="actions">
 <%= f.submit "Create" %>

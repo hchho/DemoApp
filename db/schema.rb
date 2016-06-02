@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160526014857) do
   create_table "demos", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
+    t.string   "name"
     t.text     "content"
     t.string   "materials"
     t.datetime "created_at", null: false
