@@ -9,7 +9,7 @@ Name: <%= @demo.name %><br>
 Topic <%= @topic.topic %><BR>
 <%= @demo.content %><BR>
 <%= @demo.materials %><P>
-<% if current_user %>
+<% if current_user.demos.exists?(id: @demo.id) %>
 <%= link_to "Edit", edit_demo_path(@demo) %>
 <%= link_to "Delete", demo_path(@demo), method: "delete" %>
 <% end %>
