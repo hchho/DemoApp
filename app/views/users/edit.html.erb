@@ -3,5 +3,7 @@
 <%= f.text_field :name, :placeholder => :name %><BR>
 <%= f.label :email %>
 <%= f.email_field :email, :placeholder => :email %><BR>
+Make demos and favourites public
+<%= f.check_box :viewable %><BR>
 <%= f.submit "Edit" %>
 <% end %>

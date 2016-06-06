@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160526014857) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.boolean  "viewable",        default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
