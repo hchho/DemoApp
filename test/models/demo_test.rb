@@ -30,4 +30,8 @@ class DemoTest < ActiveSupport::TestCase
   	assert_not @demo.valid?
   end
 
+  test "subject should be present" do
+    @demo.subject_id = ""
+    assert_not @demo.valid?
+  end
 end

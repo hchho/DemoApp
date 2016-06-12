@@ -55,4 +55,5 @@ class DemosController < ApplicationController
 		@demo = current_user.demos.find_by(id: params[:id])
 		redirect_to '/' if @demo.nil?
 	end
+
 end

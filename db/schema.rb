@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526014857) do
+ActiveRecord::Schema.define(version: 20160611180138) do
 
   create_table "demos", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
+    t.integer  "rating_id"
     t.string   "name"
     t.text     "content"
     t.string   "materials"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160526014857) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "demos", ["rating_id"], name: "index_demos_on_rating_id"
   add_index "demos", ["subject_id"], name: "index_demos_on_subject_id"
   add_index "demos", ["user_id", "subject_id", "created_at"], name: "index_demos_on_user_id_and_subject_id_and_created_at"
   add_index "demos", ["user_id"], name: "index_demos_on_user_id"
@@ -37,6 +39,12 @@ ActiveRecord::Schema.define(version: 20160526014857) do
 
   add_index "favourites", ["favourited_type", "favourited_id"], name: "index_favourites_on_favourited_type_and_favourited_id"
   add_index "favourites", ["user_id"], name: "index_favourites_on_user_id"
+
+  create_table "ratings", force: :cascade do |t|
+    t.float    "rating",     default: 2.5
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "topic"

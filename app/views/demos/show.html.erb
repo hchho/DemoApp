@@ -5,6 +5,11 @@
 <%= link_to 'Remove from favourites', favourite_demo_path(id: @demo.id), method: :delete %>
 <% end %>
 This is demo <%= @demo.id %>, created by <%= @user.name %><P>
+<!-- Rating: <%= @demo.rating %>
+<%= form_for @demo do |f| %>
+<%= f.select :rating, [[5,5],[4,4],[3,3],[2,2],[1,1],[0,0]] %>
+<%= f.submit %>
+<% end %> --><br>
 Name: <%= @demo.name %><br>
 Topic <%= @topic.topic %><BR>
 <%= @demo.content %><BR>
