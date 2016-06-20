@@ -3,7 +3,6 @@ class CreateDemos < ActiveRecord::Migration
     create_table :demos do |t|
       t.references :user, index: true
       t.references :subject, index: true
-      t.references :rating, index: true
       t.string :name
       t.text :content
       t.string :materials
