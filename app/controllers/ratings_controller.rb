@@ -3,6 +3,9 @@ class RatingsController < ApplicationController
 
 	def create
 		@rating = Rating.create(rating_params)
+		if @rating.save 
+			render @demo
+		end
 	end
 
 	def update

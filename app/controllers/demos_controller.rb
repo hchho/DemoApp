@@ -11,6 +11,7 @@ class DemosController < ApplicationController
 		@demo = Demo.find(params[:id])
 		@user = User.find(@demo.user_id)
 		@topic = Subject.find(@demo.subject_id)
+		@ratings = @demo.ratings
 	end
 
 	def new
