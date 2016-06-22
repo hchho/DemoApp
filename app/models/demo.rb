@@ -7,4 +7,14 @@ class Demo < ActiveRecord::Base
 	validates :materials, presence: true
 	validates :name, presence: true, length: { maximum: 40 }
 	validates :subject_id, presence: true
+
+	def update_average_rating
+		@value = 0
+		self.ratings.each do |r|
+			@value += r.value 
+		end
+		@total = self.ratings.size
+
+		update_attributes(rating_average: @value.to_f / @total.to_f)
+	end
 end

@@ -9,9 +9,9 @@ class DemosController < ApplicationController
 
 	def show
 		@demo = Demo.find(params[:id])
-		@user = User.find(@demo.user_id)
-		@topic = Subject.find(@demo.subject_id)
-		@ratings = @demo.ratings
+		@user = @demo.user
+		@topic = @demo.subject
+		@rating = Rating.where(reviewer: current_user, reviewed: @demo).first || @rating = Rating.create(reviewer: current_user, reviewed: @demo)
 	end
 
 	def new
@@ -21,6 +21,7 @@ class DemosController < ApplicationController
 
 	def create
 		@demo = current_user.demos.build(demo_params)
+		@rating = Rating.create(reviewer: current_user, reviewed: @demo)
 		if @demo.save
 			redirect_to '/', alert: "Demo created successfully"
 		else
@@ -56,5 +57,4 @@ class DemosController < ApplicationController
 		@demo = current_user.demos.find_by(id: params[:id])
 		redirect_to '/' if @demo.nil?
 	end
-
 end

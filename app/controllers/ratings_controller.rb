@@ -1,24 +1,33 @@
 class RatingsController < ApplicationController
 	before_action :require_user, only: [:create, :update]
+	after_action :update_demo_rating
 
 	def create
 		@rating = Rating.create(rating_params)
 		if @rating.save 
-			render @demo
+			@demo = @rating.reviewed
+			redirect_back_or(@demo)
 		end
 	end
 
 	def update
-		if @rating.update(rating_params)
-			redirect_to(:action => 'show', :id => @demo.id)
-		else
-			render @demo
-		end
+	  @rating = Rating.find(params[:id])
+	  if @rating.update_attributes(rating_params)
+	  	@demo = @rating.reviewed
+	    redirect_back_or(@demo)
+	  end
 	end
 
 	private
 
 	def rating_params
-		params.require(:subject).permit(:rating, :reviewer_id, :reviewed_id)
+		params.require(:rating).permit(:value, :reviewer_id, :reviewed_id)
 	end
+
+	def update_demo_rating
+		@rating = Rating.find(params[:id])
+		@demo = @rating.reviewed
+		@demo.update_average_rating
+	end
+
 end
