@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160611180138) do
     t.string   "name"
     t.text     "content"
     t.string   "materials"
-    t.float    "rating_average"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.float    "rating_average", default: 2.5
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "demos", ["subject_id"], name: "index_demos_on_subject_id"

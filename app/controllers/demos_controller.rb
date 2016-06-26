@@ -3,7 +3,7 @@ class DemosController < ApplicationController
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
-		@demos = Demo.all
+		@demos = Demo.all.order(rating_average: :desc)
 		@user = User.first
 	end
 

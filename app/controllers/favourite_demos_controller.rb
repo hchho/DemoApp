@@ -18,7 +18,4 @@ class FavouriteDemosController < ApplicationController
 
 	private
 
-	# def set_demo
-	# 	@demo = Demo.find(params[:demo_id] || params[:id])
-	# end
 end
