@@ -50,7 +50,7 @@ class DemosController < ApplicationController
 	private
 
 	def demo_params
-		params.require(:demo).permit(:name, :content, :materials, :subject_id)
+		params.require(:demo).permit(:name, :content, :materials, :subject_id, :created_at)
 	end
 
 	def correct_user

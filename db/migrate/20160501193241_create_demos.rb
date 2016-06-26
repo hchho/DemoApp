@@ -7,6 +7,7 @@ class CreateDemos < ActiveRecord::Migration
       t.text :content
       t.string :materials
       t.float :rating_average, default: 2.5
+      t.datetime :created_at
       t.timestamps null: false
     end
     add_index :demos, [:user_id, :subject_id, :created_at]

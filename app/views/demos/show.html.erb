@@ -13,6 +13,7 @@ Rating:
 <% end %><br>
 Name: <%= @demo.name %><br>
 Topic <%= @topic.topic %><BR>
+Created at: <%= @demo.created_at %><BR>
 <%= @demo.content %><BR>
 <%= @demo.materials %><P>
 <% if current_user.demos.exists?(id: @demo.id) %>
