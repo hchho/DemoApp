@@ -1,3 +1,9 @@
 r1:
   reviewer: bill
   reviewed: orange
+  value: 4
+
+r2:
+  reviewer: albert
+  reviewed: orange
+  value: 2

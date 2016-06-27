@@ -2,20 +2,32 @@ require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase
 	def setup
-		@rating = Rating.new()
+		@albert = users(:albert)
+		@bill = users(:bill)
+		# @newrating = Rating.new()
+		# @firstrating = ratings(:r1)
+		# @secondrating = ratings(:r2)
+		@demo = demos(:orange)
+		@newrating = Rating.new(reviewer: @albert, reviewed: @demo)
+	end
+
+	test "rating should be valid" do 
+		assert @newrating.valid?
 	end
 
 	test "rating default should be 2.5" do 
-		assert @rating.value == 2.5
+		assert @newrating.value == 2.5
 	end
 
-	test "rating should be less than or equal to 5" do 
-		@rating.value = 6
-		assert_not @rating.valid?
+	test "rating should be between 0 and 5" do 
+		@newrating.value = 6
+		assert_not @newrating.valid?
+		@newrating.value = -1
+		assert_not @newrating.valid?
 	end
 
-	test "rating should be greater or equal to zero" do 
-		@rating.value = -1
-		assert_not @rating.valid?
-	end
+	test "rating reviewer should match correct user" do 
+		assert_same @newrating.reviewer, @albert
+		assert_not_same @newrating.reviewer, @bill
+	end 
 end

@@ -1,4 +1,5 @@
 <H1>Demos</H1>
+Sort by: <%= link_to('Name', :order => 'name') %>, <%= link_to('Date created', order: 'created') %>, <%= link_to('Rating', order: 'rating') %> <P>
 <% @demos.each do |d| %>
 <%= d.name %><BR>
 <%= link_to "Details", demo_path(d) %><P>

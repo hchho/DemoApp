@@ -4,6 +4,8 @@ class DemoTest < ActiveSupport::TestCase
   def setup
   	@user = users(:albert)
   	@demo = @user.demos.build(name: "wtf", content: "lol", materials: "zzz", subject_id: 1)
+    @firstrating = ratings(:r1)
+    @rateddemo = demos(:orange)
   end
 
   test "should be valid" do 
