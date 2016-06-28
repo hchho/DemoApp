@@ -14,7 +14,7 @@ Rating:
 Name: <%= @demo.name %><br>
 Topic <%= @topic.topic %><BR>
 Created at: <%= @demo.created_at %><BR>
-<%= @demo.content %><BR>
+<%= raw(@demo.content) %><BR>
 <%= @demo.materials %><P>
 <% if current_user.demos.exists?(id: @demo.id) %>
 <%= link_to "Edit", edit_demo_path(@demo) %>
