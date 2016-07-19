@@ -4,7 +4,7 @@ class DemosController < ApplicationController
 
 	def index
 		if (params[:order] == 'name')
-			@demos = Demo.all.order(name: :desc)
+			@demos = Demo.all.order('LOWER(name)')
 		elsif (params[:order] == 'created')
 			@demos = Demo.all.order(created_at: :desc)
 		elsif (params[:order] == 'rating')
