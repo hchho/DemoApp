@@ -1,4 +1,6 @@
+<div class="center jumbotron">
 <H1>Demos</H1>
+</div>
 Sort by: <%= link_to('Name', :order => 'name') %>, <%= link_to('Most recent', order: 'created') %>, <%= link_to('Rating', order: 'rating') %> <P>
 <% @demos.each do |d| %>
 <%= d.name %><BR>
