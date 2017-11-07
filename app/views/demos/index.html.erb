@@ -1,9 +1,13 @@
-<div class="center jumbotron">
-<H1>Demos</H1>
-</div>
+<H1 class="jumbotron text-center">Demos</H1>
 Sort by: <%= link_to('Name', :order => 'name') %>, <%= link_to('Most recent', order: 'created') %>, <%= link_to('Rating', order: 'rating') %> <P>
-<% @demos.each do |d| %>
-<%= d.name %><BR>
-<%= link_to "Details", demo_path(d) %><P>
-<% end %>
-<%= link_to "New Demo", "/demos/new" %>
+<div class="row text-center">
+	<% @demos.each do |d| %>
+	<div class="col-sm-4 demo_thumbnail">
+		<%= d.name %></br>
+		<%= link_to "Details", demo_path(d) %>
+	</div>
+	<% end %>
+</div>
+<P>
+<%= link_to "New Demo", "/demos/new", {:class => "btn btn-primary"} %>
+</P>

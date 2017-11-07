@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+	margin-top: 50px;
+}
+
+.demo_thumbnail {
+	padding: 20px;
+}
+
+.demo_form {
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+}

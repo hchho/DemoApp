@@ -1,8 +1,6 @@
-<%= form_for(@demo) do |f| %>
-<div class="field">
-<%= render 'demo_form', f: f %>
+<div class="form demo_form">
+	<%= form_for(@demo) do |f| %>
+	<%= render 'demo_form', f: f %>
+	<%= f.submit "Create", class: "btn btn-primary" %>
+	<% end %>
 </div>
-<div class="actions">
-<%= f.submit "Create" %>
-</div>
-<% end %>

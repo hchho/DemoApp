@@ -1,23 +1,27 @@
-<body>
-<% unless current_user.favourite_demos.exists?(id: @demo.id) %>
-<%= link_to 'Add to favourites', favourite_demos_path(demo_id: @demo), method: :post %>
-<% else %>
-<%= link_to 'Remove from favourites', favourite_demo_path(id: @demo.id), method: :delete %>
-<% end %>
-This is demo <%= @demo.id %>, created by <%= @user.name %><P>
+<H1><%= @demo.name %></H1>
+<P>
+created by <%= @user.name %>
+</P>
 Rating: 
 <%= @demo.rating_average || 2.5 %>
 <%= form_for @rating, url: rating_path(@rating), method: :put do |f| %>
 <%= f.select :value, options_for_select([[5,5],[4,4],[3,3],[2,2],[1,1]], 3) %>
 <%= f.submit "Rate" %>
-<% end %><br>
-Name: <%= @demo.name %><br>
-Topic <%= @topic.topic %><BR>
+<% end %>
+
+Topic:<%= @topic.topic %>, 
+<!-- This is demo <%= @demo.id %> --> 
 Created at: <%= @demo.created_at %><BR>
+Materials: <%= @demo.materials %><P>
 <%= raw(@demo.content) %><BR>
-<%= @demo.materials %><P>
+
 <% if current_user.demos.exists?(id: @demo.id) %>
 <%= link_to "Edit", edit_demo_path(@demo) %>
 <%= link_to "Delete", demo_path(@demo), method: "delete" %>
 <% end %>
 
+<% unless current_user.favourite_demos.exists?(id: @demo.id) %>
+<%= link_to 'Add to favourites', favourite_demos_path(demo_id: @demo), method: :post %>
+<% else %>
+<%= link_to 'Remove from favourites', favourite_demo_path(id: @demo.id), method: :delete %>
+<% end %>
