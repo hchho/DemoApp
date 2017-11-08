@@ -9,8 +9,20 @@ body {
 	padding: 20px;
 }
 
-.demo_form {
-	width: 70%;
+.demo_form, .login_form, .signup_form {
 	display: block;
 	margin: 0 auto;
+}
+
+.demo_form {
+	width: 70%;
+}
+
+.login_form, .signup_form {
+	border: 1px;
+	width: 600px;
+}
+
+.form_group {
+	text-align: right;
 }
